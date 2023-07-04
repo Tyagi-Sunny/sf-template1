@@ -57,3 +57,12 @@ spec:
               - water
         - required:
             - animal
+  steps:
+    - id: generate
+      name: Generate Scaffold
+      action: run:scaffold
+      input:
+        name: ${{ parameters.animal }}
+  output:
+    remoteUrl: ${{ steps.publish.output.remoteUrl }}
+    entityRef: ${{ steps.register.output.entityRef }}
